@@ -1,0 +1,28 @@
+{
+  "default": {
+    "libcap": {
+      "baseline": "2.68",
+      "port-version": 0
+    },
+    "libsystemd": {
+      "baseline": "253",
+      "port-version": 0
+    },
+    "libxcrypt": {
+      "baseline": "4.4.33",
+      "port-version": 0
+    },
+    "sdbusplus": {
+      "baseline": "1.0.0",
+      "port-version": 0
+    },
+    "small-vectors": {
+      "baseline": "2023-02-23",
+      "port-version": 1
+    },
+    "soem-master": {
+      "baseline": "1.4.0",
+      "port-version": 4
+    }
+  }
+}
