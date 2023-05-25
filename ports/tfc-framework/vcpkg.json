@@ -2,6 +2,27 @@
   "name": "tfc-framework",
   "version": "0.1.0",
   "dependencies": [
+    "azmq",
+    "bext-sml",
+    "bext-ut",
+    "boost-asio",
+    "boost-beast",
+    "boost-program-options",
+    "boost-stacktrace",
+    "boost-url",
+    "date",
+    "fmt",
+    "glaze",
+    {
+      "name": "libgpiod",
+      "features": [
+        "cxx-bindings"
+      ]
+    },
+    "magic-enum",
+    "sdbusplus",
+    "soem-master",
+    "spdlog",
     {
       "name": "vcpkg-cmake",
       "host": true
@@ -9,26 +30,7 @@
     {
       "name": "vcpkg-cmake-config",
       "host": true
-    },
-    "azmq",
-    "bext-ut",
-    "boost-url",
-    "boost-asio",
-    "boost-program-options",
-    "boost-stacktrace",
-    "boost-beast",
-    "fmt",
-    "glaze",
-    "spdlog",
-    "magic-enum",
-    "bext-sml",
-    "soem-master",
-    {
-      "name": "libgpiod",
-      "features": ["cxx-bindings"]
-    },
-    "sdbusplus",
-    "date"
+    }
   ],
   "features": {
     "build-exes": {
