@@ -12,6 +12,10 @@
       "baseline": "4.4.33",
       "port-version": 0
     },
+    "mp-units": {
+      "baseline": "0.7.0",
+      "port-version": 2
+    },
     "sdbusplus": {
       "baseline": "1.0.0",
       "port-version": 0
