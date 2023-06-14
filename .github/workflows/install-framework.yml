@@ -27,4 +27,5 @@ jobs:
       - name: Test install
         run: |
           cd test
+          /opt/vcpkg/bootstrap-vcpkg.sh
           /opt/vcpkg/vcpkg --triplet ${{ matrix.triplet }} install
