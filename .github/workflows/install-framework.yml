@@ -22,10 +22,9 @@ jobs:
       fail-fast: false
       matrix:
         triplet: [x64-linux-gcc, x64-linux-gcc-dynamic, x64-linux-clang, arm64-linux]
-        compiler: [gcc, clang]
     steps:
       - uses: actions/checkout@v3
       - name: Test install
         run: |
           cd test
-          /opt/vcpkg/vcpkg --triplet ${{ triplet }} install
+          /opt/vcpkg/vcpkg --triplet ${{ matrix.triplet }} install
