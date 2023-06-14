@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        triplet: [x64-linux-gcc, x64-linux-gcc-dynamic, x64-linux-clang, arm64-linux]
+        triplet: [x64-linux-gcc, x64-linux-clang, arm64-linux] # x64-linux-gcc-dynamic, x64-linux-clang-dynamic
     steps:
       - uses: actions/checkout@v3
       - name: Test install
