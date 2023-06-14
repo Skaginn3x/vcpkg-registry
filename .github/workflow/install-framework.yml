@@ -1,0 +1,31 @@
+name: vcpkg install tfc-framework
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  CONFIGURATION_DIRECTORY: ${{ github.workspace }}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: 'build and install'
+    runs-on: ubuntu-22.04
+    container: ghcr.io/skaginn3x/skaginn3x/framework/tfc-toolchain:sha-7315878
+    strategy:
+      fail-fast: false
+      matrix:
+        triplet: [x64-linux-gcc, x64-linux-gcc-dynamic, x64-linux-clang, arm64-linux]
+        compiler: [gcc, clang]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test install
+        run: |
+          cd test
+          /opt/vcpkg/vcpkg --triplet ${{ triplet }} install
