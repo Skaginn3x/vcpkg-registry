@@ -29,3 +29,16 @@ jobs:
           cd test
           /opt/vcpkg/bootstrap-vcpkg.sh
           /opt/vcpkg/vcpkg --triplet ${{ matrix.triplet }} install
+
+      - name: Upload vcpkg log
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: vcpkg-build-fail-logs
+          path: /opt/vcpkg/**/*out.log
+      - name: Upload vcpkg log
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: vcpkg-build-fail-logs
+          path: /opt/vcpkg/**/*err.log
