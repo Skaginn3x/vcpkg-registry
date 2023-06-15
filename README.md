@@ -9,3 +9,10 @@ $ mkdir scripts
 $ cp /opt/vcpkg/scripts/vcpkgTools.xml scripts/
 $ /opt/vcpkg/vcpkg x-add-version --all --vcpkg-root=$(pwd) --overwrite-version
 ```
+
+## Testing
+
+```bash
+$ cd test
+$ /opt/vcpkg/vcpkg --triplet x64-linux-clang install # select your desired triplet
+```
