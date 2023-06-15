@@ -13,8 +13,8 @@
       "port-version": 0
     },
     "mp-units": {
-      "baseline": "0.7.0",
-      "port-version": 2
+      "baseline": "0.8.0",
+      "port-version": 0
     },
     "sdbusplus": {
       "baseline": "1.0.0",
