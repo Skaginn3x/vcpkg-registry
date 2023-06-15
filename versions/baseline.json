@@ -24,10 +24,6 @@
       "baseline": "2023-02-23",
       "port-version": 1
     },
-    "soem-master": {
-      "baseline": "1.4.0",
-      "port-version": 4
-    },
     "tfc-framework": {
       "baseline": "0.1.1",
       "port-version": 0
