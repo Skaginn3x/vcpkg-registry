@@ -6,10 +6,8 @@
     "bext-sml",
     "bext-ut",
     "boost-asio",
-    "boost-beast",
     "boost-program-options",
     "boost-stacktrace",
-    "boost-url",
     "date",
     "fmt",
     "glaze",
@@ -20,8 +18,9 @@
       ]
     },
     "magic-enum",
+    "mp-units",
     "sdbusplus",
-    "soem-master",
+    "soem",
     "spdlog",
     {
       "name": "vcpkg-cmake",
