@@ -2,7 +2,7 @@
   "default-registry": {
     "kind": "git",
     "repository": "https://github.com/microsoft/vcpkg",
-    "baseline": "dc6188d0eb3f9fd7b53f4e21b1878ea868e34c02"
+    "baseline": "fbc868ee5e12e3e81f464104be246ec06553c274"
   },
   "overlay-triplets": [
     "../triplets"
