@@ -1,5 +1,9 @@
 {
   "default": {
+    "azmq": {
+      "baseline": "1.0.4",
+      "port-version": 0
+    },
     "libcap": {
       "baseline": "2.68",
       "port-version": 0
