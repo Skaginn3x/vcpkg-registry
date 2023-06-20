@@ -24,6 +24,10 @@ jobs:
         triplet: [x64-linux-gcc, x64-linux-clang, arm64-linux] # x64-linux-gcc-dynamic, x64-linux-clang-dynamic
     steps:
       - uses: actions/checkout@v3
+      - name: Update vcpkg
+        run: |
+          cd /opt/vcpkg
+          git pull
       - name: Test install
         run: |
           cd test
