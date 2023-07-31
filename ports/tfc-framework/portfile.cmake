@@ -2,7 +2,7 @@ vcpkg_from_github(
         OUT_SOURCE_PATH SOURCE_PATH
         REPO skaginn3x/framework
         REF 0f11c347c86ec0b3a548b339f0748bcccf5367b2
-        SHA512 0
+        SHA512 b96c1058d38727e81819369c4a75e0f0abe9b3d942d157ed4b3949f50173bda037118e6be603faf56161ae040131c150dcde13f83bb634b0af0e5369b223f4b8
         HEAD_REF protobuf_fix
 )
 
