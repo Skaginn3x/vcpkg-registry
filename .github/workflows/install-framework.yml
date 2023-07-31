@@ -31,7 +31,7 @@ jobs:
       - name: Test install
         run: |
           cd test
-          ls
+          pwd
           exit -1
           /opt/vcpkg/bootstrap-vcpkg.sh
           /opt/vcpkg/vcpkg --triplet ${{ matrix.triplet }} install
