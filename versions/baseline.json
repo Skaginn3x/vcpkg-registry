@@ -1,9 +1,5 @@
 {
   "default": {
-    "async-mqtt": {
-      "baseline": "1.0.5",
-      "port-version": 0
-    },
     "azmq": {
       "baseline": "1.0.4",
       "port-version": 0
@@ -18,10 +14,6 @@
     },
     "libxcrypt": {
       "baseline": "4.4.33",
-      "port-version": 0
-    },
-    "mp-units": {
-      "baseline": "0.8.0",
       "port-version": 0
     },
     "sdbusplus": {
