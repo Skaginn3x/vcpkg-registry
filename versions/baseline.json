@@ -13,7 +13,7 @@
       "port-version": 0
     },
     "libxcrypt": {
-      "baseline": "4.4.33",
+      "baseline": "4.4.36",
       "port-version": 0
     },
     "sdbusplus": {
