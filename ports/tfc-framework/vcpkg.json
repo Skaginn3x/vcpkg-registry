@@ -1,6 +1,6 @@
 {
   "name": "tfc-framework",
-  "version": "0.1.1",
+  "version": "2023.10.1",
   "dependencies": [
     "async-mqtt",
     "azmq",
@@ -12,6 +12,7 @@
     "date",
     "fmt",
     "glaze",
+    "gtest",
     {
       "name": "libgpiod",
       "features": [
@@ -20,10 +21,18 @@
     },
     "magic-enum",
     "mp-units",
+    "openssl",
+    "pcg",
     "protobuf",
-    "sdbusplus",
+    {
+      "name": "sdbusplus",
+      "features": [
+        "asio-only"
+      ]
+    },
     "soem",
     "spdlog",
+    "stduuid",
     {
       "name": "vcpkg-cmake",
       "host": true
