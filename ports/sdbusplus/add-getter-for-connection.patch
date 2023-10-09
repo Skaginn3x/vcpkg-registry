@@ -1,0 +1,13 @@
+diff --git a/include/sdbusplus/asio/object_server.hpp b/include/sdbusplus/asio/object_server.hpp
+index 57dcc95..a4d8ff7 100644
+--- a/include/sdbusplus/asio/object_server.hpp
++++ b/include/sdbusplus/asio/object_server.hpp
+@@ -398,6 +398,8 @@ class dbus_interface
+                                        std::vector<std::string>{name_});
+     }
+ 
++    auto connection() const noexcept -> std::shared_ptr<sdbusplus::asio::connection> { return conn_; }
++
+     template <typename PropertyType, typename CallbackTypeGet>
+     bool register_property_r(const std::string& name,
+                              const PropertyType& property,

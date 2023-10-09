@@ -1,31 +1,47 @@
+if(VCPKG_TARGET_IS_LINUX)
+  message("Warning: `sdbusplus` requires GCC 13+")
+endif()
+
 vcpkg_from_github(
-  OUT_SOURCE_PATH SOURCE_PATH
-  REPO openbmc/sdbusplus
-  REF 1caa5e8a5ad9e9f26ddf2effe095ba1670911bc1
-  SHA512 9b674457a79376ba2df0a52f07d8eea61720ca7635489cb7da1c0f7b218cddeae0ce95dabc2e90cf562eddbf28b724cd90ef6b321fa738b4f1ae60912518160a
-  PATCHES
-    libcpp-does-not-have-stop-token.patch # https://en.cppreference.com/w/cpp/20
-    # disabling boost definitions that cannot be defined because if privately linked to this library in one place
-    # and use different definitions for boost asio in other places will produce sigsev fault
-    disable-boost-definitions.patch
+    OUT_SOURCE_PATH SOURCE_PATH
+    REPO openbmc/sdbusplus
+    REF f6e67e87893b531d527d60a24d192bb6327964ef
+    SHA512 12b23243affcf43460b916f05293eedf3cb3992177dc47a19424c3686058b8a11495509960b3fbb6c44fbbdd5686153d51eb6030c6cc816748a3811f0dbb0784
+    PATCHES
+      # disabling boost definitions that cannot be defined because if privately linked to this library in one place
+      # and use different definitions for boost asio in other places will produce sigsev fault
+      disable-boost-definitions.patch
+      async-option.patch
+      add-getter-for-connection.patch
 )
+
+# Hack to work with old meson version
+file(COPY "${CMAKE_CURRENT_LIST_DIR}/meson_options.txt" DESTINATION "${SOURCE_PATH}")
+
+file(INSTALL "${CMAKE_CURRENT_LIST_DIR}/usage" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}")
 
 x_vcpkg_get_python_packages(
-        PYTHON_VERSION "3"
-        PACKAGES mako pyyaml inflection
+    PYTHON_VERSION "3"
+    PACKAGES mako pyyaml inflection
 )
 
+if ("asio-only" IN_LIST FEATURES)
+  set(USE_ASYNC disabled)
+else()
+  set(USE_ASYNC enabled)
+endif()
+
 vcpkg_configure_meson(
-  SOURCE_PATH "${SOURCE_PATH}"
-  OPTIONS
-    -Dtests=disabled
-    -Dexamples=disabled
+    SOURCE_PATH "${SOURCE_PATH}"
+    OPTIONS
+      -Dtests=disabled
+      -Dexamples=disabled
+      -Dasync=${USE_ASYNC}
+      -Dcpp_std=c++20 # todo revert to c++23 when meson tool has been upgraded
 )
 
 vcpkg_install_meson()
 
 vcpkg_fixup_pkgconfig()
-
-configure_file("${CMAKE_CURRENT_LIST_DIR}/Config.cmake.in" "${CURRENT_PACKAGES_DIR}/share/unofficial-sdbusplus/unofficial-sdbusplus-config.cmake" @ONLY)
 
 vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE")

@@ -1,23 +1,7 @@
 {
   "default": {
-    "azmq": {
-      "baseline": "1.0.4",
-      "port-version": 0
-    },
-    "libcap": {
-      "baseline": "2.68",
-      "port-version": 0
-    },
-    "libsystemd": {
-      "baseline": "253",
-      "port-version": 0
-    },
-    "libxcrypt": {
-      "baseline": "4.4.36",
-      "port-version": 0
-    },
     "sdbusplus": {
-      "baseline": "1.0.0",
+      "baseline": "2023-09-14",
       "port-version": 0
     },
     "small-vectors": {
@@ -25,7 +9,7 @@
       "port-version": 1
     },
     "tfc-framework": {
-      "baseline": "0.1.1",
+      "baseline": "2023.10.1",
       "port-version": 0
     }
   }
