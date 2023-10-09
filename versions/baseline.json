@@ -1,21 +1,5 @@
 {
   "default": {
-    "azmq": {
-      "baseline": "1.0.4",
-      "port-version": 0
-    },
-    "libcap": {
-      "baseline": "2.68",
-      "port-version": 0
-    },
-    "libsystemd": {
-      "baseline": "253",
-      "port-version": 0
-    },
-    "libxcrypt": {
-      "baseline": "4.4.36",
-      "port-version": 0
-    },
     "sdbusplus": {
       "baseline": "1.0.0",
       "port-version": 0
