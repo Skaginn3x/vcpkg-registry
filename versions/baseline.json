@@ -9,7 +9,7 @@
       "port-version": 1
     },
     "tfc-framework": {
-      "baseline": "2023.10.2",
+      "baseline": "2023.10.3",
       "port-version": 0
     }
   }
