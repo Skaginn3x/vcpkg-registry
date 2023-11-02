@@ -2,7 +2,7 @@ vcpkg_from_github(
   OUT_SOURCE_PATH SOURCE_PATH
   REPO skaginn3x/framework
   REF ${VERSION}
-  SHA512 aa9b41ab036d3162567fadff9a7981a942eec19d0ddae43f8f9dbcd11d01dfc41ab122279d1cadec8106c8edd9ecb807eef7bb49552a89c0cf1f333e5a6a60a0
+  SHA512 0
 )
 
 if ("build-exes" IN_LIST FEATURES)
