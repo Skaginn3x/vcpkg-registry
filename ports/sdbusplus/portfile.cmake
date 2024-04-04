@@ -15,9 +15,6 @@ vcpkg_from_github(
       add-getter-for-connection.patch
 )
 
-# Hack to work with old meson version
-file(COPY "${CMAKE_CURRENT_LIST_DIR}/meson_options.txt" DESTINATION "${SOURCE_PATH}")
-
 file(INSTALL "${CMAKE_CURRENT_LIST_DIR}/usage" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}")
 
 x_vcpkg_get_python_packages(
