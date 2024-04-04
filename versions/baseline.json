@@ -2,7 +2,7 @@
   "default": {
     "sdbusplus": {
       "baseline": "2023-09-14",
-      "port-version": 0
+      "port-version": 1
     },
     "small-vectors": {
       "baseline": "2023-02-23",
