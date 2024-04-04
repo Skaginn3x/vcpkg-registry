@@ -5,8 +5,8 @@ endif()
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO openbmc/sdbusplus
-    REF f6e67e87893b531d527d60a24d192bb6327964ef
-    SHA512 12b23243affcf43460b916f05293eedf3cb3992177dc47a19424c3686058b8a11495509960b3fbb6c44fbbdd5686153d51eb6030c6cc816748a3811f0dbb0784
+    REF a4df19a74a398f3fb806a9c245f6bda42cfff117
+    SHA512 03cf561b116d94e4c631aeadc9ac778c4383de31f6f5c13afd99e971a75bcb3c37f5a95a4e2a16a98810d277c1aaef839acb6cb971b11dae79da19ab60605b58 
     PATCHES
       # disabling boost definitions that cannot be defined because if privately linked to this library in one place
       # and use different definitions for boost asio in other places will produce sigsev fault
