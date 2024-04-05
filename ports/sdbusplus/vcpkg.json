@@ -1,6 +1,7 @@
 {
   "name": "sdbusplus",
   "version-date": "2024-04-04",
+  "port-version": 1,
   "description": "The sdbusplus library builds on top of the sd-bus library to create a modern C++ API for D-Bus.",
   "homepage": "https://github.com/openbmc/sdbusplus",
   "license": "Apache-2.0",
@@ -15,7 +16,8 @@
     },
     {
       "name": "vcpkg-tool-meson",
-      "host": true
+      "host": true,
+      "version>=": "1.3.2"
     }
   ],
   "features": {
