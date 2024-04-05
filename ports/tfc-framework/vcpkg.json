@@ -1,17 +1,25 @@
 {
   "name": "tfc-framework",
-  "version": "2023.11.1",
+  "version": "2024.2.9",
   "dependencies": [
-    "async-mqtt",
+    {
+      "name": "async-mqtt",
+      "version>=": "4.0.0"
+    },
     "azmq",
     "bext-sml",
     "bext-ut",
     "boost-asio",
     "boost-program-options",
+    "boost-coroutine2",
     "boost-stacktrace",
+    "boost-uuid",
     "date",
     "fmt",
-    "glaze",
+    {
+      "name": "glaze",
+      "version>=": "1.9.6"
+    },
     "gtest",
     {
       "name": "libgpiod",
@@ -20,12 +28,19 @@
       ]
     },
     "magic-enum",
-    "mp-units",
+    {
+      "name": "mp-units",
+      "features": [
+        "use-libfmt"
+      ],
+      "version>=": "2.1.0"
+    },
     "openssl",
     "pcg",
     "protobuf",
     {
       "name": "sdbusplus",
+      "version>=": "2023-09-14",
       "features": [
         "asio-only"
       ]
@@ -33,6 +48,8 @@
     "soem",
     "spdlog",
     "stduuid",
+    "sqlite3",
+    "sqlite-modern-cpp",
     {
       "name": "vcpkg-cmake",
       "host": true

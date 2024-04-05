@@ -1,31 +1,45 @@
-vcpkg_from_github(
-  OUT_SOURCE_PATH SOURCE_PATH
-  REPO skaginn3x/framework
-  REF ${VERSION}
-  SHA512 a13e75ee9af16723822bc412aa6d887a9719e720bed8f33a01537107a63b70f920184bbce8cb779e2182d832167e45886bfcdef38b0ddae8e6b2df4532d5039b
-)
+set(GIT_REPO "skaginn3x/framework")
+set(GIT_HASH "bb6d322cf4a429692721c97d1e1eca87641c1207") # tag or hash
+set(GIT_URL "https://github.com/${GIT_REPO}.git")
 
-if ("build-exes" IN_LIST FEATURES)
-  set(BUILD_EXES ON)
-else()
-  set(BUILD_EXES OFF)
+set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/${GIT_HASH}.clean)
+
+find_program(GIT git REQUIRED)
+
+if(NOT EXISTS "${SOURCE_PATH}/.git")
+  message(STATUS "Running command: ${GIT} clone ${GIT_URL} ${SOURCE_PATH}")
+  vcpkg_execute_required_process(
+      COMMAND ${GIT} clone ${GIT_URL} ${SOURCE_PATH}
+      WORKING_DIRECTORY ${CURRENT_BUILDTREES_DIR}
+      LOGNAME clone
+  )
+
+  message(STATUS "Running command: ${GIT} checkout ${GIT_HASH}")
+  vcpkg_execute_required_process(
+      COMMAND ${GIT} checkout ${GIT_HASH}
+      WORKING_DIRECTORY ${SOURCE_PATH}
+      LOGNAME checkout
+  )
+
+  message(STATUS "${GIT} submodule update --init --recursive")
+  vcpkg_execute_required_process(
+      COMMAND ${GIT} submodule update --init --recursive
+      WORKING_DIRECTORY ${SOURCE_PATH}
+      LOGNAME submodule-update
+  )
 endif()
 
 vcpkg_cmake_configure(
-    SOURCE_PATH "${SOURCE_PATH}"
-    OPTIONS
-      -DCMAKE_PROJECT_VERSION=${VERSION} # todo I don't like this
-      -DBUILD_EXES=${BUILD_EXES}
-      -DBUILD_TESTING=OFF
-      -DBUILD_DOCS=OFF
-      -DBUILD_EXAMPLES=OFF
+  SOURCE_PATH "${SOURCE_PATH}"
+  OPTIONS
+    -DBUILD_EXES=OFF
+    -DBUILD_TESTING=OFF
+    -DBUILD_DOCS=OFF
+    -DBUILD_EXAMPLES=OFF
+    -DBUILD_FRONTEND=OFF
 )
 
-if (${BUILD_EXES})
-  vcpkg_cmake_install(ADD_BIN_TO_PATH)
-else ()
-  vcpkg_cmake_install()
-endif ()
+vcpkg_cmake_install()
 
 vcpkg_cmake_config_fixup(PACKAGE_NAME tfc)
 
