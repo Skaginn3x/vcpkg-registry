@@ -10,8 +10,8 @@
     "bext-sml",
     "bext-ut",
     "boost-asio",
-    "boost-program-options",
     "boost-coroutine2",
+    "boost-program-options",
     "boost-stacktrace",
     "boost-uuid",
     "date",
@@ -40,16 +40,16 @@
     "protobuf",
     {
       "name": "sdbusplus",
-      "version>=": "2023-09-14",
       "features": [
         "asio-only"
-      ]
+      ],
+      "version>=": "2023-09-14"
     },
     "soem",
     "spdlog",
-    "stduuid",
-    "sqlite3",
     "sqlite-modern-cpp",
+    "sqlite3",
+    "stduuid",
     {
       "name": "vcpkg-cmake",
       "host": true
